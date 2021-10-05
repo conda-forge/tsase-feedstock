@@ -9,9 +9,7 @@ source:
   url: http://theory.cm.utexas.edu/code/{{ name }}.tgz
   sha256: d51a339ce1fc3229a58489968ffd1da0a325a4ebef7e8acf63176b7c9b9c34d0
   patches:
-    - ase.patch
     - compiler.patch
-    - python3.patch
     - setup.patch
 
 build:
