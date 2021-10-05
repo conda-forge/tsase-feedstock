@@ -12,9 +12,10 @@ source:
     - ase.patch
     - compiler.patch
     - python3.patch
+    - setup.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   script: "{{ PYTHON }} -m pip install . -vv"
 
