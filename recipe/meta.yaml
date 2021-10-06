@@ -9,11 +9,10 @@ source:
   url: http://theory.cm.utexas.edu/code/{{ name }}.tgz
   sha256: d51a339ce1fc3229a58489968ffd1da0a325a4ebef7e8acf63176b7c9b9c34d0
   patches:
-    - compiler.patch
     - setup.patch
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win]
   script: "{{ PYTHON }} -m pip install . -vv"
 
