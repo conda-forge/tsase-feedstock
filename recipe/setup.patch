@@ -1,31 +1,26 @@
-From 3b349b9d105a2e724355b7162a6f1e39a9f094da Mon Sep 17 00:00:00 2001
-From: Jan Janssen <jan.janssen@outlook.com>
-Date: Tue, 5 Oct 2021 17:11:43 -0600
-Subject: [PATCH] fix setup.py
+From 6e5e3b3046c16a9ef840b411a6baebf3862f2dc9 Mon Sep 17 00:00:00 2001
+From: Jan Janssen <jan-janssen@users.noreply.github.com>
+Date: Tue, 5 Oct 2021 18:59:20 -0600
+Subject: [PATCH] Update setup.py
 
 ---
- setup.py | 29 ++++++++++++++++++++++-------
- 1 file changed, 22 insertions(+), 7 deletions(-)
+ setup.py | 30 ++++++++++++++++++++++++------
+ 1 file changed, 24 insertions(+), 6 deletions(-)
 
 diff --git a/setup.py b/setup.py
-index b0290f3..b5f24e4 100644
+index b0290f3..a0cdd83 100644
 --- a/setup.py
 +++ b/setup.py
-@@ -1,10 +1,11 @@
- #!/usr/bin/env python
--from distutils.core import setup
-+from distutils.core import setup, Extension
- from distutils.command.install import install as DistutilsInstall
- import subprocess
- from sys import exit
+@@ -16,29 +16,47 @@ def run(self):
+         if '__init__.py' in filenames:
+             packages.append(dirname.replace('/', '.'))
  
- import os
-+import glob
- 
- class CustomInstall(DistutilsInstall):
-         def run(self):
-@@ -18,27 +19,41 @@ def run(self):
- 
++library_lst = []
++for r, d, fl in os.walk('tsase'):
++    for f in fl:
++        if f.endswith(".so"):
++            library_lst.append(os.path.join(r, f))
++
  package_dir = {'tsase': 'tsase'}
  
 -scripts = ['bin/xyz']
@@ -46,8 +41,6 @@ index b0290f3..b5f24e4 100644
 +    "bin/water_solvate_z",
 +    "bin/xyz",
 +]
-+
-+library_lst = [os.path.relpath("tsase", p) for p in glob.glob("tsase/calculators/**/*.*.so", recursive=True)]
  
  package_data = {'tsase': ['xyz/xyz.glade',
                            'xyz/xyz.help',
