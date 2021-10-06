@@ -47,7 +47,7 @@ index b0290f3..b5f24e4 100644
 +    "bin/xyz",
 +]
 +
-+library_lst = glob.glob("tsase/calculators/**/*.*.so", recursive=True)
++library_lst = [os.path.relpath("tsase", p) for p in glob.glob("tsase/calculators/**/*.*.so", recursive=True)]
  
  package_data = {'tsase': ['xyz/xyz.glade',
                            'xyz/xyz.help',
