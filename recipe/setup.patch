@@ -15,7 +15,7 @@ index b0290f3..dc23cec 100644
  #!/usr/bin/env python
 -from distutils.core import setup
 -from distutils.command.install import install as DistutilsInstall
-+from distutils.core import setup, Extensions
++from numpy.distutils.core import setup, Extension
  import subprocess
  from sys import exit
 -
