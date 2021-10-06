@@ -1,0 +1,74 @@
+From 3b349b9d105a2e724355b7162a6f1e39a9f094da Mon Sep 17 00:00:00 2001
+From: Jan Janssen <jan.janssen@outlook.com>
+Date: Tue, 5 Oct 2021 17:11:43 -0600
+Subject: [PATCH] fix setup.py
+
+---
+ setup.py | 29 ++++++++++++++++++++++-------
+ 1 file changed, 22 insertions(+), 7 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index b0290f3..b5f24e4 100644
+--- a/setup.py
++++ b/setup.py
+@@ -1,10 +1,11 @@
+ #!/usr/bin/env python
+-from distutils.core import setup
++from distutils.core import setup, Extension
+ from distutils.command.install import install as DistutilsInstall
+ import subprocess
+ from sys import exit
+ 
+ import os
++import glob
+ 
+ class CustomInstall(DistutilsInstall):
+         def run(self):
+@@ -18,27 +19,41 @@ def run(self):
+ 
+ package_dir = {'tsase': 'tsase'}
+ 
+-scripts = ['bin/xyz']
++scripts = [
++    "bin/dump2xdat",
++    "bin/kmc",
++    "bin/lmp2con",
++    "bin/lmp2pos",
++    "bin/mobfil",
++    "bin/neighbors",
++    "bin/oldexpectra",
++    "bin/pdf-make.py",
++    "bin/soc2pos",
++    "bin/splitxdat",
++    "bin/temgui",
++    "bin/tsase",
++    "bin/water_solvate",
++    "bin/water_solvate_z",
++    "bin/xyz",
++]
++
++library_lst = glob.glob("tsase/calculators/**/*.*.so", recursive=True)
+ 
+ package_data = {'tsase': ['xyz/xyz.glade',
+                           'xyz/xyz.help',
+                           'xyz/*.png',
+-                          'calculators/al/al_.so',
+                           'calculators/cuo/ffield.comb',
+                           'calculators/cuo/ffield.comb3',
+                           'calculators/cuo/in.lammps',
+-                          'calculators/lepspho/lepspho_.so',
+                           'calculators/lisi/LiSi.meam',
+                           'calculators/lisi/in.lammps',
+                           'calculators/lisi/library.meam',
+-                          'calculators/lj/lj_.so',
+                           'calculators/mo/Mo.set',
+                           'calculators/mo/in.lammps',
+-                          'calculators/morse/morse_.so',
+                           'calculators/si/Si.meam',
+                           'calculators/si/library.meam',
+                           'calculators/w/W.set',
+-                          'calculators/w/in.lammps']}
++                          'calculators/w/in.lammps'] + library_lst}
+ 
+ setup(name='tsase',
+       version='1.0',
