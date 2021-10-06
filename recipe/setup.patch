@@ -4,14 +4,14 @@ Date: Tue, 5 Oct 2021 19:37:46 -0600
 Subject: [PATCH] Update setup.py
 
 ---
- setup.py | 103 +++++++++++++++++++++++++++++++++++++++++++------------
- 1 file changed, 81 insertions(+), 22 deletions(-)
+ setup.py | 95 +++++++++++++++++++++++++++++++++++------------
+ 1 file changed, 73 insertions(+), 22 deletions(-)
 
 diff --git a/setup.py b/setup.py
 index b0290f3..dc23cec 100644
 --- a/setup.py
 +++ b/setup.py
-@@ -1,24 +1,82 @@
+@@ -1,24 +1,74 @@
  #!/usr/bin/env python
 -from distutils.core import setup
 -from distutils.command.install import install as DistutilsInstall
@@ -44,16 +44,8 @@ index b0290f3..dc23cec 100644
 +        'tsase/calculators/al/code/fofrhoDblexp.f',
 +        'tsase/calculators/al/code/embedenergy.f',
 +        'tsase/calculators/al/code/dfrhoDblexp.f',
-+        'tsase/calculators/al/code/commonblks/combaths.cmn',
-+        'tsase/calculators/al/code/commonblks/comconf.cmn',
-+        'tsase/calculators/al/code/commonblks/comenergy.cmn',
-+        'tsase/calculators/al/code/commonblks/comenperat.cmn',
-+        'tsase/calculators/al/code/commonblks/comgeom.cmn',
-+        'tsase/calculators/al/code/commonblks/comintlis.cmn',
-+        'tsase/calculators/al/code/commonblks/comluns.cmn',
-+        'tsase/calculators/al/code/commonblks/compotent.cmn',
-+        'tsase/calculators/al/code/commonblks/parameters.cmn',
 +    ],
++    include_dirs=['tsase/calculators/al/code/commonblks']
 +)
 +
 +
