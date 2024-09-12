@@ -10,7 +10,7 @@ source:
   sha256: 7218f712d4710e5453570820e28f321c00f8df6302c601ff504e514832629a04
 
 build:
-  number: 6
+  number: 7
   skip: true  # [win]
   script: "{{ PYTHON }} -m pip install . -vv"
 
@@ -19,6 +19,7 @@ requirements:
     - make 
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - pip
