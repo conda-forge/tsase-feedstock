@@ -25,7 +25,7 @@ requirements:
     - numpy
   run:
     - python
-    - ase
+    - ase <3.23
     - numpy
 
 test:
