@@ -19,6 +19,7 @@ requirements:
     - make 
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - pip
