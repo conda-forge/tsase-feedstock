@@ -7,7 +7,7 @@ package:
 
 source:
   url: http://theory.cm.utexas.edu/code/{{ name }}.tgz
-  sha256: 7218f712d4710e5453570820e28f321c00f8df6302c601ff504e514832629a04
+  sha256: 707b9f21570ec0e46cd7b64bd0baa0ec3fab0d3c15fdcce186626f1841b6a11d
 
 build:
   number: 7
