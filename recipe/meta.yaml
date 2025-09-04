@@ -8,6 +8,8 @@ package:
 source:
   url: http://theory.cm.utexas.edu/code/{{ name }}.tgz
   sha256: 707b9f21570ec0e46cd7b64bd0baa0ec3fab0d3c15fdcce186626f1841b6a11d
+  patches:
+    - setup.patch
 
 build:
   number: 7
