@@ -7,10 +7,10 @@ package:
 
 source:
   url: http://theory.cm.utexas.edu/code/{{ name }}.tgz
-  sha256: 7218f712d4710e5453570820e28f321c00f8df6302c601ff504e514832629a04
+  sha256: a1a4f35fc161be504a37ce1467609940dd1eac7424a1dee89e27edb36875e4fc
 
 build:
-  number: 6
+  number: 7
   skip: true  # [win]
   script: "{{ PYTHON }} -m pip install . -vv"
 
@@ -19,13 +19,15 @@ requirements:
     - make 
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - pip
+    - setuptools
     - numpy
   run:
     - python
-    - ase
+    - ase <3.23
     - numpy
 
 test:
